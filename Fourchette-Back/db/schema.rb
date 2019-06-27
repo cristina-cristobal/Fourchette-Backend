@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 2019_06_26_145420) do
   enable_extension "plpgsql"
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "name"
+    t.string "description"
+    t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,15 +25,6 @@ ActiveRecord::Schema.define(version: 2019_06_26_145420) do
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-    t.string "quantity"
-    t.string "measurement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,17 +38,13 @@ ActiveRecord::Schema.define(version: 2019_06_26_145420) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.text "note"
-    t.boolean "copy"
+    t.string "image"
     t.integer "user_id"
+    t.boolean "copy"
     t.integer "prev_recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "steps", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.text "description"
+    t.text "intro"
+    t.text "notes"
+    t.text "steps"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
