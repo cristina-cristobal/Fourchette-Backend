@@ -1,7 +1,7 @@
 
-tina = User.find_or_create_by(username: "tinavc", password: "tina", first_name: "Tina", last_name: "Cristobal")
-camille = User.find_or_create_by(username: "cammi", password: "cammi", first_name: "Camille", last_name: "Flores")
-mae = User.find_or_create_by(username: "Amaezing", password: "mae", first_name: "Jenny Mae", last_name: "Policarpio")
+tina = User.find_or_create_by(username: "tinavc", password: "tina", full_name: "Tina Cristobal")
+camille = User.find_or_create_by(username: "cammi", password: "cammi", full_name: "Camille Flores")
+mae = User.find_or_create_by(username: "Amaezing", password: "mae", full_name: "Jenny Mae Policarpio")
 
 bread_pudding = Recipe.find_or_create_by(name: "Croissant Bread Pudding", image: "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18130011/051116014-01-caramel-croissant-pudding-main.jpg", user_id: camille.id, copy: false, steps: "Preheat the oven to 350 degrees F.
 
