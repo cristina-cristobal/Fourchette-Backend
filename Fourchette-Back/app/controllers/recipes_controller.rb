@@ -18,8 +18,8 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find_by(id: params["id"])
-    @recipe = Recipe.create(name: params["name"], image: params["image"], user_id: params["user_id"], copy: true, prev_recipe_id: params["prev_recipe_id"], intro: params["intro"], notes: params["notes"], steps: params["steps"])
-
+    @recipe.update(name: params["name"], image: params["image"], user_id: params["user_id"], copy: true, prev_recipe_id: params["prev_recipe_id"], intro: params["intro"], notes: params["notes"], steps: params["steps"])
+    @recipe.save
     render({json: @recipe})
 
   end
