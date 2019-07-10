@@ -12,6 +12,10 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.create(name: params["name"], image: params["image"], user_id: params["user_id"], copy: params["copy"], prev_recipe_id: params["prev_recipe_id"], intro: params["intro"], notes: params["notes"], steps: params["steps"])
 
+    params["ingredients"].each do |ing|
+      @ingredient = Ingredient.create(description: ing)
+      @recipe.ingredients.push(@ingredient)
+    end
     render({json: @recipe})
 
   end

@@ -13,4 +13,15 @@ class IngredientsController < ApplicationController
     render ({json: ing_array})
   end
 
+  def updatedingredients
+    ing_arr = []
+    params["ingredients"].each do |ing|
+      @ingredient = Ingredient.find_by(id: ing["id"])
+      @ingredient.update(description: ing["description"])
+      @ingredient.save
+      ing_arr << @ingredient
+    end
+    render ({json: ing_arr})
+  end
+
 end
